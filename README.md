@@ -84,7 +84,9 @@ Following the `WHERE` you can add a series of conditional statements, separated 
 Examples of conditions:
 
 
-Suppose we wanted a query that would pull back all the ticket sales, showing us the title, date and cinema these sales relate to, restricted to all the Harry Potter films *except* Hary Potter 5 (which obviously was rubbish). To keep our data less noisy, we'll also drop cinemas with sales of less than 1000 and we only want sales from the noughties.
+Suppose we wanted a query that would: `SELECT` all the `ticket_sales`, showing us the `title`, `sales_date` and `cinema` these `ticket_sales` relate to `FROM` our table containing `cinemas.sales`, `WHERE` the filmes belong to the Harry Potter franchise *except* Hary Potter 5 (which obviously was rubbish).
+
+To keep our data less noisy, we'll also drop cinemas with `ticket_sales` less than 1000 and we only want sales `BETWEEN` the noughties.
 
 Here is what that query might look like:
 
@@ -99,9 +101,9 @@ WHERE  lower(title) like '%harry potter%'
 ```
 
 Notes about some of those conditions:
-`lower(<text>)` is a function in PostgreSQL, it converts and text to only lowercase text, this makes matching text case-insensitive and simpler.
-`like` is similar to `=` but for text matching, it gives some additional options, `%` being one of them: this is a wildcard symbol and so `%harry potter%` means "...harry potter..." or any string of text which features the substring 'harry potter' within it. This means that any film title which only has `harry` (like _When Sally met Harry_) or `potter` (like the Aussie parody _Potter_) alone will not match, neither will a title with words between harry and potter match.
-`BETWEEN` allows you to specify a range for a value to fall between, it's *inclusive* so `BETWEEN 1 AND 10` is `1, 2... 9, 10`
+*`lower(<text>)` is a function in PostgreSQL, it converts and text to only lowercase text, this makes matching text case-insensitive and simpler.
+*`like` is similar to `=` but for text matching, it gives some additional options, `%` being one of them: this is a wildcard symbol and so `%harry potter%` means "...harry potter..." or any string of text which features the substring 'harry potter' within it. This means that any film title which only has `harry` (like _When Sally met Harry_) or `potter` (like the Aussie parody _Potter_) alone will not match, neither will a title with words between harry and potter match.
+*`BETWEEN` allows you to specify a range for a value to fall between, it's *inclusive* so `BETWEEN 1 AND 10` is `1, 2... 9, 10`
 
 There are a whole bunch of conditions and operators, resources like [techonthenet](http://www.techonthenet.com/postgresql/) are good look up references for finding new conditions.
 ##Data Types
