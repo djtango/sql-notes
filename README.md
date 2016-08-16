@@ -101,9 +101,9 @@ WHERE  lower(title) like '%harry potter%'
 ```
 
 Notes about some of those conditions:
-*`lower(<text>)` is a function in PostgreSQL, it converts and text to only lowercase text, this makes matching text case-insensitive and simpler.
-*`like` is similar to `=` but for text matching, it gives some additional options, `%` being one of them: this is a wildcard symbol and so `%harry potter%` means "...harry potter..." or any string of text which features the substring 'harry potter' within it. This means that any film title which only has `harry` (like _When Sally met Harry_) or `potter` (like the Aussie parody _Potter_) alone will not match, neither will a title with words between harry and potter match.
-*`BETWEEN` allows you to specify a range for a value to fall between, it's *inclusive* so `BETWEEN 1 AND 10` is `1, 2... 9, 10`
+   `lower(<text>)` is a function in PostgreSQL, it converts and text to only lowercase text, this makes matching text case-insensitive and simpler.  
+   `like` is similar to `=` but for text matching, it gives some additional options, `%` being one of them: this is a wildcard symbol and so `%harry potter%` means "...harry potter..." or any string of text which features the substring 'harry potter' within it. This means that any film title which only has `harry` (like _When Sally met Harry_) or `potter` (like the Aussie parody _Potter_) alone will not match, neither will a title with words between harry and potter match.  
+   `BETWEEN` allows you to specify a range for a value to fall between, it's *inclusive* so `BETWEEN 1 AND 10` is `1, 2... 9, 10`  
 
 There are a whole bunch of conditions and operators, resources like [techonthenet](http://www.techonthenet.com/postgresql/) are good look up references for finding new conditions.
 ##Data Types
